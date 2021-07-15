@@ -13,7 +13,7 @@ const App=()=> {
           <PlaylistContainer
              url={Data.album.images[0].url} 
              name={Data.name} 
-             artist={Data.artists.name}
+             artist={Data.artists[0].name}
              album={Data.album.name} />
       </div>
   );
