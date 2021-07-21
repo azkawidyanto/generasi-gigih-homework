@@ -19,6 +19,11 @@
 
 }
 
+button{
+  width: 5vw;
+  height: 2vw;
+}
+
 .image{
   width: 30vw !important;
   margin-right: 5vw;
