@@ -7,6 +7,8 @@ import PlaylistContainer from "../Components/Playlist Container";
 const PlaylistSearch=(props)=>{
     const [tracks, setTracks] = useState(null);
     const [search, setSearch] = useState('');
+    const [trackSelected,setTrackSelected]= useState([]);
+
 
     const getSearch = () => {
         fetch(`https://api.spotify.com/v1/search?q=${search}&type=track`, {
@@ -18,6 +20,14 @@ const PlaylistSearch=(props)=>{
 
     const getInput=(event)=>{
         setSearch(event.target.value);
+    }
+    const handleSelect = uri => {
+      if (trackSelected.includes(uri)) {
+        let newTracks = trackSelected.filter(track => track !== uri)
+        setTrackSelected(newTracks)
+      } else {
+        setTrackSelected([...trackSelected, uri])
+      }
     }
     // useEffect(() => {
     //   getSearch();
@@ -32,14 +42,15 @@ const PlaylistSearch=(props)=>{
           Search
         </button>
       </div>
-      {console.log(tracks)}
           {tracks? 
           <>  
-          {tracks?.items.map((track,id) => {
+          {tracks?.items.map(track => {
              return(
               <PlaylistContainer
-                key={id}
-                uri={track.uri}
+                handleSelect={handleSelect}
+                trackSelected={trackSelected.includes(track.uri)}
+                key={track.id}
+                track={track}
                 url={track.album.images[0].url}
                 name={track.name}
                 artist={track.artists[0].name}
