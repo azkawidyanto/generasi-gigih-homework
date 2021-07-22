@@ -1,7 +1,18 @@
+import { useState } from "react";
+import { Button } from 'react-bootstrap';
+
 const PlaylistContainer=(props)=>{
-    const selectSong=()=>{
-        alert("Pilih Lagu Queen!")
+    const selectSong=()=>{           
+         setSelect(!select)
+        if(idSelected===null){
+            setIDSelected(props.uri)
+        } else{
+            setIDSelected(null)
+        }
+
       }
+      const [select,setSelect] = useState(false);
+      const [idSelected,setIDSelected]= useState(null);
     return(
         <>
         <div className="container">   
@@ -12,7 +23,13 @@ const PlaylistContainer=(props)=>{
                 <h2 className="song-title" >Song Title: <span id="title-song">{props.name}</span></h2>
                 <h2 className="song-artist">Song Artist: <span id="song-artist">{props.artist}</span></h2>
                 <h2 className="song-album">Song Albums: <span id="song-album">{props.album}</span></h2>
-                <button onClick={selectSong}>Select</button>
+                <Button onClick={selectSong}>
+                {select && (idSelected ===props.uri) ?
+                 "Deselected"
+                 :"Select"
+                 }   
+                </Button>
+            {console.log(idSelected)}
             </div>
         </div>
         </>
