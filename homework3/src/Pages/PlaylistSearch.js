@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 import { useEffect, useState } from "react";
 import PlaylistContainer from "../Components/Playlist Container";
+import PlaylistForm from "./playlistForm";
+import Header from "../Components/header";
 // import Datas from '../data'
 
 
@@ -8,7 +10,8 @@ const PlaylistSearch=(props)=>{
     const [tracks, setTracks] = useState(null);
     const [search, setSearch] = useState('');
     const [trackSelected,setTrackSelected]= useState([]);
-
+    const [title,setTitle] = useState("");
+    const [description, setDescription] = useState("");
 
     const getSearch = () => {
         fetch(`https://api.spotify.com/v1/search?q=${search}&type=track`, {
@@ -29,19 +32,34 @@ const PlaylistSearch=(props)=>{
         setTrackSelected([...trackSelected, uri])
       }
     }
+
+  //   const handleChange=(e)=>{
+  //     setSearch(e.target.value);
+  // }
     // useEffect(() => {
     //   getSearch();
     // });
+   const createPlaylist =()=>{
+    
+   }
 
   return (
-    <>
+    <div className="homepage">
+      <Header />
       <h1 className="Title">Playlist Search</h1>
       <div className="search">
         <input value={search} className="search-input" onChange={(event)=>getInput(event)} type="text" name="search"/>
         <button onClick={getSearch}>
           Search
         </button>
+      
       </div>
+      <PlaylistForm 
+      title={title}
+      description={description}
+      getInput={getInput}
+      createPlaylist={createPlaylist}
+      />
           {tracks? 
           <>  
           {tracks?.items.map(track => {
@@ -63,7 +81,7 @@ const PlaylistSearch=(props)=>{
           <h2>Tracks null</h2>
 
           }
-    </>
+    </div>
   );
 }
 
