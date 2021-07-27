@@ -12,8 +12,50 @@ const PlaylistSearch=(props)=>{
     const [trackSelected,setTrackSelected]= useState([]);
     const [title,setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [userId, setUserId] = useState('')
 
-    const getSearch = () => {
+    useEffect(() => {
+      async function fetchData() {
+      const user = await fetchFromSpotifyApi(
+        'https://api.spotify.com/v1/me',
+        props.accessToken
+      )
+      setUserId(user.id)
+      }
+      fetchData()
+    }, [])
+
+    const postPlaylist = async () => {
+      return await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + props.accessToken,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.title,
+          description: form.description,
+          public: false,
+        }),
+      }).then(res => res.json())
+    }
+  
+    const addItemToPlaylist = async id => {
+      fetch(`https://api.spotify.com/v1/playlists/${id}/tracks`, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + props.accessToken,
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          uris: selectedTracks
+        }),
+      })
+    }
+
+    const getSearch = () => { 
         fetch(`https://api.spotify.com/v1/search?q=${search}&type=track`, {
         headers: { Authorization: "Bearer " + props.params.access_token },
         })
