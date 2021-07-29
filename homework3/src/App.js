@@ -3,7 +3,8 @@ import './App.css';
 import {useState} from 'react';
 import SpotifyLoginPage from './Pages/SpotifyLoginPage';
 import PlaylistSearch from './Pages/PlaylistSearch';
-
+import PlaylistForm from './Pages/playlistForm';
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 
 const App=()=> {
@@ -18,10 +19,23 @@ const App=()=> {
 
   return (
     <div className="App">
+          <BrowserRouter>
+          <Switch>
+            <Route path="/login" component={SpotifyLoginPage}/>
+            <Route path="/search" component={PlaylistSearch}/>
+            <Route path="/create-playlist" component={PlaylistForm} />
+          </Switch>
+        </BrowserRouter>
       { isLogin.status? (
-        <PlaylistSearch params={isLogin.params} />
+          <li>
+           <Link to="/search"><PlaylistSearch params={isLogin.params} /></Link>
+         </li>
+        // <PlaylistSearch params={isLogin.params} />
       ) : (
-        <SpotifyLoginPage onLogin={getToken} />
+        <li>
+        <Link to="/login"> <SpotifyLoginPage onLogin={getToken} /></Link>
+      </li>
+
       )
       }
     {/* { Datas.map(Data=>
