@@ -1,55 +1,31 @@
+import './App.css'
+import Homepage from './pages/Homepage'
+import CreatePlaylist from './pages/CreatePlaylist'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-import './App.css';
-import {useState} from 'react';
-import SpotifyLoginPage from './Pages/SpotifyLoginPage';
-import PlaylistSearch from './Pages/PlaylistSearch';
-import PlaylistForm from './Pages/playlistForm';
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-
-
-const App=()=> {
-  const [isLogin, setIsLogin] = useState({ status: false, params: {} });
-  const getToken = (params) => {
-    if (params?.access_token) {
-      setIsLogin({ status: true, params: params });
-    }
-
-  };
-
-
+function App() {
+  const { isAuthenticated } = useSelector(state => state.auth)
   return (
     <div className="App">
-          <BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <main>
+        <Sidebar />
           <Switch>
-            <Route path="/login" component={SpotifyLoginPage}/>
-            <Route path="/search" component={PlaylistSearch}/>
-            <Route path="/create-playlist" component={PlaylistForm} />
+            <Route path='/create-playlist' >
+              { isAuthenticated ? <CreatePlaylist /> : <Redirect to='/' />}
+            </Route>
+            <Route path='/' >
+              <Homepage />
+            </Route>
           </Switch>
-        </BrowserRouter>
-      { isLogin.status? (
-          <li>
-           <Link to="/search"><PlaylistSearch params={isLogin.params} /></Link>
-         </li>
-        // <PlaylistSearch params={isLogin.params} />
-      ) : (
-        <li>
-        <Link to="/login"> <SpotifyLoginPage onLogin={getToken} /></Link>
-      </li>
-
-      )
-      }
-    {/* { Datas.map(Data=>
-          <PlaylistContainer
-             url={Data.album.images[0].url} 
-             name={Data.name} 
-             artist={Data.artists[0].name}
-             album={Data.album.name} />
-      )
-    } */}
+        </main>
+      </BrowserRouter>
     </div>
-
-
-  );
+  )
 }
 
-export default App;
+export default App
