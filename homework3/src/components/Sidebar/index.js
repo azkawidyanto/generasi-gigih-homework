@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MdHome, MdLibraryMusic } from 'react-icons/md'
-import style from './sidebar.css'
+import style from "./style.module.css"
 
 const Sidebar = () => {
   return (

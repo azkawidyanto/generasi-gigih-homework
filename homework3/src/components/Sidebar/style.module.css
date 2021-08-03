@@ -4,10 +4,13 @@
     padding: 1rem;
     transition: all 150ms ease-out;
     cursor: pointer;
+    display: flex;
+    flex-direction:column;
 }
 
 .item {
     display: flex;
+    flex-direction:row;
     place-items: center;
     border-radius: 4px;
     color: var(--dark-text-color);

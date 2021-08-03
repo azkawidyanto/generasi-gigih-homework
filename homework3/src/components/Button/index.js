@@ -1,4 +1,4 @@
-import style from './button.css'
+import style from "./style.module.css"
 
 const Button = ({ variant = 'primary', icon, children, ...props }) => {
     return (
