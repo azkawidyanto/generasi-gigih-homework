@@ -3,6 +3,7 @@ import Button from '../Button'
 import style from './style.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { addSelectedTracks, substractSelectedTracks } from '../../store/playlist'
+import { Box } from "@chakra-ui/layout";
 
 const Track = ({ track }) => {
   const dispatch = useDispatch()
@@ -30,7 +31,8 @@ const Track = ({ track }) => {
   const image = track.album.images.find(image => image.width === 64)
 
   return (
-    <div className={style.wrapper}>
+    // <div className={style.wrapper}>
+    <Box borderWidth="5px" borderRadius="md" ml="5" className={style.wrapper}>
       <img className={style.image} src={image.url} alt={track.name} />
       <span className={style.info}>
         <a className={style.title} href={track.external_urls.spotify}>{track.name}</a>
@@ -41,7 +43,9 @@ const Track = ({ track }) => {
           {isSelected ? 'Deselect' : 'Select'}
         </Button>
       </span>
-    </div>
+    </Box>
+
+    // </div>
   )
 }
 

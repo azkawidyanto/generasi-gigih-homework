@@ -1,11 +1,12 @@
-import style from "./style.module.css"
+import style from "./style.module.css";
+import { Button} from "@chakra-ui/button";
 
-const Button = ({ variant = 'primary', icon, children, ...props }) => {
+const Buttons = ({ variant = 'primary', icon, children, ...props }) => {
     return (
-        <button className={style.button + ' ' + style['button-' + variant]} {...props} >
+        <Button colorScheme="blue" variant="solid" mr="5" className={style.button + ' ' + style['button-' + variant]} {...props} >
             {icon} {children}
-        </button>
+        </Button>
     )
 }
 
-export default Button
+export default Buttons

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from '../Link'
-import Button from '../Button'
+import Buttons from '../Button'
 import style from './style.module.css'
 import { FaSpotify } from 'react-icons/fa'
 import { FiSearch } from 'react-icons/fi'
@@ -37,17 +37,17 @@ const Navbar = () => {
           onChange={e => setQuery(e.target.value)}
           value={query}
         />
-        <Button onClick={handleSubmit} variant='transparent' >
+        <Buttons onClick={handleSubmit} variant='transparent' >
           <FiSearch size="1.25em" style={{ margin: 0 }} />
-        </Button>
+        </Buttons>
       </form>
       <div className={style.user}>
         {isAuthenticated ? (
           <span>Hello <strong>{user.display_name}</strong></span>
         ) : (
-          <Button onClick={authorize} icon={<FaSpotify />}>
-            Login to Spotify
-          </Button>
+          <Buttons onClick={authorize} icon={<FaSpotify />}>
+            Login 
+          </Buttons>
         )}
       </div>
     </nav>
