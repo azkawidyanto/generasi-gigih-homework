@@ -1,7 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
+interface Track {
+  tracks:  Array<string>;
+  selectedTracks: Array<string>;
+  form: {
+    title: string,
+    description: string,
+  };
+}
 
-
-const initialState = {
+const initialState:Track = {
   tracks: [],
   selectedTracks: [],
   form: {
