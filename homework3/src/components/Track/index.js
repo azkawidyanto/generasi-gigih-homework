@@ -32,8 +32,8 @@ const Track = ({ track }) => {
 
   return (
     // <div className={style.wrapper}>
-    <Box borderWidth="5px" borderRadius="md" ml="5" className={style.wrapper}>
-      <img className={style.image} src={image.url} alt={track.name} />
+    <Box  borderWidth="5px" borderRadius="md" ml="5" className={style.wrapper}>
+      <img data-testid="custom-element" className={style.image} src={image.url} alt={track.name} />
       <span className={style.info}>
         <a className={style.title} href={track.external_urls.spotify}>{track.name}</a>
         <p className={style.artist}>{artists}</p>

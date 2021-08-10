@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    if (!query) alert('Pwease input the query')
+    if (!query) alert('Please input the query')
     getTracks(accessToken, {
       q: query,
       type: 'track',
@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav className={style.navbar}>
       <div className={style.logo}>
-        <Link to='/' >GenGIGIH</Link>
+        <Link to='/' >Search and Playlist Spotify</Link>
       </div>
       <form className={style.search} onSubmit={handleSubmit}>
         <input
