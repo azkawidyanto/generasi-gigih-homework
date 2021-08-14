@@ -1,11 +1,11 @@
 const BASE_URL = 'https://api.spotify.com/v1'
 
-interface Track {
-    uri: string;
-    artists: Array<string>;
-    album: Array<string>
+// interface Track {
+//     uri: string;
+//     artists: Array<string>;
+//     album: Array<string>
   
-  }
+//   }
 const randomString = (length) => {
     var text = "";
     var possible =
