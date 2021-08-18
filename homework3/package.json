@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/button": "^1.4.1",
+    "@chakra-ui/input": "^1.2.9",
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "11",
     "@emotion/styled": "11",

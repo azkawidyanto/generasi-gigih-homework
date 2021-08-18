@@ -1,4 +1,4 @@
-import Link from '../Link'
+import { Link } from 'react-router-dom'
 import { Button} from "@chakra-ui/button";
 import style from './style.module.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -32,7 +32,6 @@ const Track = ({ track }) => {
   const image = track.album.images.find(image => image.width === 64)
 
   return (
-    // <div className={style.wrapper}>
     <Box borderWidth="5px" borderRadius="md" ml="5" className={style.wrapper}>
       <img className={style.image} src={image.url} alt={track.name} />
       <span className={style.info}>
@@ -45,8 +44,6 @@ const Track = ({ track }) => {
         </Button>
       </span>
     </Box>
-
-    // </div>
   )
 }
 

@@ -4,6 +4,7 @@
     column-gap: 2rem;
     padding: 1rem;
     align-items: center;
+    background-color: green;
 }
 
 .logo {
@@ -17,19 +18,11 @@
     text-align: center
 }
 
-.search input {
-    outline: none;
-    background: none;
-    border: none;
-    padding: 1em 1.5em;
-    font-size: 1rem;
-}
-
-.search input[type=text] {
-    width: 100%;
-    border-radius: 9999px;
-    background-color: var(--dark-foreground-color);
-    color: var(--dark-text-color);
+.menu{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 700;
+    font-color:white;
 }
 
 .user {

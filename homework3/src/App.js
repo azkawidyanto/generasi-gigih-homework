@@ -2,7 +2,7 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import CreatePlaylist from './pages/CreatePlaylist'
 import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
+
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -13,7 +13,6 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <main>
-        <Sidebar />
           <Switch>
             <Route path='/create-playlist' >
               { isAuthenticated ? <CreatePlaylist /> : <Redirect to='/' />}

@@ -9,14 +9,14 @@ const Homepage = () => {
     <div
       style={{
         display: 'grid',
+        marginTop:"20px",
         placeItems: 'center',
-        backgroundColor: 'var(--dark-foreground-color)',
-        borderRadius: 4
+        backgroundColor: 'black',
+        borderRadius: 10
       }}
     >
       <p>
-        Pwease authorize yourself by clicking that nice looking button on
-        <strong> top-right</strong> corner of the page before using this app.
+        Mini Spotify Playlist
       </p>
     </div>
   )
