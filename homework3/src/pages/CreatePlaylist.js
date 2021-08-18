@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import Track from '../components/Track/track.tsx'
 import PlaylistForm from '../components/PlaylistForm'
 
+
  
 const CreatePlaylist = () => {
 
@@ -12,7 +13,7 @@ const CreatePlaylist = () => {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', columnGap: '5vw' }}>
       <div>
-        <h2>Tracks</h2>
+        <h2 style={{placeItems: 'center'}}>Tracks</h2>
         {tracks.map(track => (
           <Track track={track} key={track.id} />
         ))}

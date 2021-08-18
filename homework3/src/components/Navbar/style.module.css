@@ -18,18 +18,17 @@
     text-align: center
 }
 
-.menu{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-weight: 700;
-    font-color:white;
-    display: flex;
-    flex-direction: row;
-}
 
-.user {
-    text-align: right;
-    display: flex;
-    flex-direction: row;
+.user { 
+    float: right;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+li{
+    margin-right: 10px;
+    display: inline-block;
 }

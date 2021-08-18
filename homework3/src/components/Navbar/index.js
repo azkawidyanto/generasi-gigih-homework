@@ -46,21 +46,27 @@ const Navbar = () => {
         </Button>
       </form>
       <div className={style.user}>
-          <Link className={style.menu} to="/">
+        <ul>
+          <li>
+            <Link to="/">
               Home
-          </Link>
-          <Link className={style.menu} to="/create-playlist">
-              Create Playlist
-          </Link>
-
-
-        {isAuthenticated ? (
-          <span><strong>{user.display_name}</strong></span>
-        ) : (
-          <Button onClick={authorize}colorScheme="black" variant="solid" ml="10" mr="5">
-            Login 
-          </Button>
-        )}
+            </Link>
+          </li>
+          <li>
+            <Link to="/create-playlist">
+                Create Playlist
+            </Link>
+          </li>
+          <li>
+            {isAuthenticated ? (
+              <span><strong>{user.display_name}</strong></span>
+            ) : (
+              <Button onClick={authorize}colorScheme="black" variant="solid" ml="5" mr="5">
+                Login 
+              </Button>
+            )}
+          </li>
+        </ul>
       </div>
     </nav>
   )
