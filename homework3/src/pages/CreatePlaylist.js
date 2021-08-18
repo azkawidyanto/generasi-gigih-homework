@@ -10,7 +10,7 @@ const CreatePlaylist = () => {
   const { tracks } = useSelector(state => state.playlist)
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '5vw' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', columnGap: '5vw' }}>
       <div>
         <h2>Tracks</h2>
         {tracks.map(track => (
