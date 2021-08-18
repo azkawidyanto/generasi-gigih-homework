@@ -32,7 +32,7 @@ const Navbar = () => {
       </div>
       <form className={style.search} onSubmit={handleSubmit}> 
       <Input
-      size="xs"
+      size="sm"
        variant="flushed"
        type="text"
        name="query"
