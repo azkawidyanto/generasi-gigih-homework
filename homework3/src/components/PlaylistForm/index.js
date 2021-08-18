@@ -1,8 +1,8 @@
 import style from './style.module.css'
-import Button from '../Button'
+import { Button} from "@chakra-ui/button";
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSelectedTracks, setForm } from '../../store/playlist'
-import { postPlaylist, postPlaylistTracks } from '../../libs/spotify'
+import { postPlaylist, postPlaylistTracks } from '../../libs/spotifyAPI'
 
 const PlaylistForm = () => {
   const { accessToken, user } = useSelector(state => state.auth)
@@ -53,10 +53,10 @@ const PlaylistForm = () => {
           value={form.description}
         ></textarea>
         <div style={{ textAlign: 'right' }}>
-          <Button onClick={clearSelection} type="button" variant="transparent">
+          <Button onClick={clearSelection} type="button" colorScheme="blue" variant="transparent" mr="5" >
             Clear
           </Button>
-          <Button onClick={handleSubmit}>Create</Button>
+          <Button onClick={handleSubmit} colorScheme="blue" variant="solid" mr="5" >Create</Button>
         </div>
       </form>
     </div>

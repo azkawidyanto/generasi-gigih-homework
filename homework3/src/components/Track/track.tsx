@@ -1,5 +1,5 @@
 import Link from '../Link'
-import Button from '../Button'
+import { Button} from "@chakra-ui/button";
 import style from './style.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { addSelectedTracks, substractSelectedTracks } from '../../store/playlist'
@@ -40,7 +40,7 @@ const Track = ({ track }) => {
         <p className={style.artist}>{artists}</p>
       </span>
       <span className={style.action}>
-        <Button onClick={handleSelect} variant={isSelected ? 'secondary' : 'primary'} >
+        <Button onClick={handleSelect} colorScheme="blue" variant="solid" mr="5"  >
           {isSelected ? 'Deselect' : 'Select'}
         </Button>
       </span>

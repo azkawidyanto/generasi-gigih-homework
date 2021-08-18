@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import Link from '../Link'
-import Buttons from '../Button'
+import { Button} from "@chakra-ui/button";
 import style from './style.module.css'
-import { FaSpotify } from 'react-icons/fa'
-import { FiSearch } from 'react-icons/fi'
-import { authorize, getTracks } from '../../libs/spotify'
+// import { FaSpotify } from 'react-icons/fa'
+// import { FiSearch } from 'react-icons/fi'
+import { authorize, getTracks } from '../../libs/spotifyAPI'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTracks } from '../../store/playlist'
 
@@ -37,17 +37,17 @@ const Navbar = () => {
           onChange={e => setQuery(e.target.value)}
           value={query}
         />
-        <Buttons onClick={handleSubmit} variant='transparent' >
-          <FiSearch size="1.25em" style={{ margin: 0 }} />
-        </Buttons>
+        <Button onClick={handleSubmit} colorScheme="blue" variant="solid" mr="5" >
+          Search
+        </Button>
       </form>
       <div className={style.user}>
         {isAuthenticated ? (
           <span>Hello <strong>{user.display_name}</strong></span>
         ) : (
-          <Buttons onClick={authorize} icon={<FaSpotify />}>
+          <Button onClick={authorize}colorScheme="blue" variant="solid" mr="5">
             Login 
-          </Buttons>
+          </Button>
         )}
       </div>
     </nav>

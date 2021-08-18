@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { getProfile } from './spotify'
+import { getProfile } from './spotifyAPI'
 import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, storeUser } from '../store/auth'
