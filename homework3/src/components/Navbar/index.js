@@ -55,7 +55,7 @@ const Navbar = () => {
 
 
         {isAuthenticated ? (
-          <span>Hello <strong>{user.display_name}</strong></span>
+          <span><strong>{user.display_name}</strong></span>
         ) : (
           <Button onClick={authorize}colorScheme="black" variant="solid" ml="10" mr="5">
             Login 
