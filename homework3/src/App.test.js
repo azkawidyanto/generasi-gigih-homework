@@ -1,9 +1,10 @@
-import { render, screen, userEvent} from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import App from './App';
 
 import React from 'react'
 import store from './store'
 import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event'
 
 test('renders learn react link', () => {
   render(  
@@ -14,7 +15,5 @@ test('renders learn react link', () => {
   // const element = screen.getByTestId('custom-element')
   expect(linkElement).toBeInTheDocument();
   // expect(element).toBeInTheDocument();
-  userEvent.click(screen.getByText('Search'))
-  expect(screen.getByLabelText(' ')).toBeChecked()
 });
 
