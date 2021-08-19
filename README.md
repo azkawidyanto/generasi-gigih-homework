@@ -7,6 +7,7 @@ Its a mini spotify apps that can se4arch and add a song to new playlist tracks w
 - Search song
 - View the search result
 - add playlist
+- showing username
 
 
 ## Getting Started with Create React App
