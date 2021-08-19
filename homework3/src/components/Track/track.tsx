@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom'
 import { Button} from "@chakra-ui/button";
 import style from './style.module.css'
-import { useSelector, useDispatch } from 'react-redux'
+import {  RootStateOrAny,useSelector, useDispatch } from 'react-redux'
 import { addSelectedTracks, substractSelectedTracks } from '../../store/playlist'
 import { Box } from "@chakra-ui/layout";
+import PropTypes from 'prop-types';
+
+import React from 'react'
 
 
-const Track = ({ track }) => {
+const Track = ({track}) => {
   const dispatch = useDispatch()
-  const selectedTracks = useSelector(state => state.playlist.selectedTracks)
+  const selectedTracks = useSelector((state:RootStateOrAny) => state.playlist.selectedTracks)
 
   const isSelected = selectedTracks.includes(track.uri)
 
@@ -22,6 +25,7 @@ const Track = ({ track }) => {
 
   const artists = track.artists.map((artist, index) => {
     const isLast = index === track.artists.length - 1
+    console.log(artist)
     return (
       <Link to={artist.external_urls.spotify} key={artist.id}>
         {artist.name + (isLast ? '' : ', ')}
@@ -46,5 +50,9 @@ const Track = ({ track }) => {
     </Box>
   )
 }
+
+Track.propTypes = {
+  track: PropTypes.string
+};
 
 export default Track

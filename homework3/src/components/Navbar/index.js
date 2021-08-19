@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button} from "@chakra-ui/button";
 import style from './style.module.css'
 // import { FaSpotify } from 'react-icons/fa'
 // import { FiSearch } from 'react-icons/fi'
-import { authorize, getTracks } from '../../libs/spotifyAPI'
+import { authorize, getTracks } from '../../api/spotifyAPI'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTracks } from '../../store/playlist'
 import { Input } from "@chakra-ui/react"
@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className={style.navbar}>
       <div className={style.logo}>
-        <Link to='/' >Search and Playlist Spotify</Link>
+        <Link to='/' > Spotify</Link>
       </div>
       <form className={style.search} onSubmit={handleSubmit}> 
       <Input

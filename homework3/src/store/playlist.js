@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-interface Track {
-  tracks:  Array<string>;
-  selectedTracks: Array<string>;
-  form: {
-    title: string,
-    description: string,
-  };
-}
+// interface Track {
+//   tracks:  Array<string>;
+//   selectedTracks: Array<string>;
+//   form: {
+//     title: string,
+//     description: string,
+//   };
+// }
 
-const initialState:Track = {
+const initialState = {
   tracks: [],
   selectedTracks: [],
   form: {
@@ -41,9 +41,7 @@ const playlistSlice = createSlice({
     clearSelectedTracks: state => {
       state.selectedTracks = []
     },
-    clearState: state => {
-      state = initialState
-    },
+
   },
 })
 
@@ -52,8 +50,7 @@ export const {
   addSelectedTracks,
   substractSelectedTracks,
   clearSelectedTracks,
-  setForm,
-  clearState
+  setForm
 } = playlistSlice.actions
 
 export default playlistSlice.reducer

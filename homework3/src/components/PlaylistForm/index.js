@@ -1,8 +1,9 @@
+import React from 'react'
 import style from './style.module.css'
 import { Button} from "@chakra-ui/button";
 import { useDispatch, useSelector } from 'react-redux'
 import { clearSelectedTracks, setForm } from '../../store/playlist'
-import { postPlaylist, postPlaylistTracks } from '../../libs/spotifyAPI'
+import { postPlaylist, postPlaylistTracks } from '../../api/spotifyAPI'
 
 const PlaylistForm = () => {
   const { accessToken, user } = useSelector(state => state.auth)
