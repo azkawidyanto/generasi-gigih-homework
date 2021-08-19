@@ -5,6 +5,7 @@ Its a mini spotify apps that can add song to a playlist tracks with account that
 ## Features
 - Login
 - Search song
+- View the search result
 - add playlist
 
 
