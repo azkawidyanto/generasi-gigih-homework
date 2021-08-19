@@ -1,6 +1,6 @@
 # Mini Spotify 
 ## Problem description
-Its a mini spotify apps that can add song to a playlist tracks with account that has been granted to use the apps
+Its a mini spotify apps that can se4arch and add a song to new playlist tracks with account that has been granted to use the apps
 
 ## Features
 - Login
