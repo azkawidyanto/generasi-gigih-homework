@@ -25,7 +25,6 @@ const Track = ({track}) => {
 
   const artists = track.artists.map((artist, index) => {
     const isLast = index === track.artists.length - 1
-    console.log(artist)
     return (
       <Link to={artist.external_urls.spotify} key={artist.id}>
         {artist.name + (isLast ? '' : ', ')}

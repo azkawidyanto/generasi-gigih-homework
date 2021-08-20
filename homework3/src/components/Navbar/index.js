@@ -60,6 +60,7 @@ const Navbar = () => {
           <li>
             {isAuthenticated ? (
               <span><strong>{user.display_name}</strong></span>
+
             ) : (
               <Button onClick={authorize}colorScheme="black" variant="solid" ml="5" mr="5">
                 Login 
